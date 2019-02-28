@@ -1,0 +1,156 @@
+/* Front End Styles */
+
+/* -- Facebook Standard Login Button -- */
+
+a.fbkStandardBtn {
+	display: inline-block;
+	text-decoration: none;
+	font-family: Tahoma, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight: bold;
+	font-size: 11px;
+	color: #fff;
+	height: 19px;
+	line-height: 18px;
+	text-align: center;
+	padding: 0 10px 0 31px;
+	background-color: #5f78ab;
+	border-top: 1px solid #879ac0;
+	outline: 1px solid #29447e;
+	position: relative;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-o-box-sizing: content-box;
+	border: none;
+}
+
+a.fbkStandardBtn span {
+	width: 21px;
+	height: 20px;
+	padding: 0;
+	margin: 0;
+	left: 0;
+	top: -1px;
+	position: absolute;
+	background: url("../image/facebooklogin/fbkIconStandardBtn.png") no-repeat left top;	
+}
+
+a.fbkStandardBtn:hover {
+	background-color: #5f78ab;
+	border-top: 1px solid #50609c;
+	color: #fff;
+	border: none;
+	text-shadow: none;
+}
+
+
+/* -- End -- */
+
+
+/* -- Facebook Metro Style Login Button -- */
+
+a.fbkMetroStyleBtn {
+	display: inline-block;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 11px;
+	color: #fff;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	padding: 0 20px 0 58px;
+	background-color: #3b5998;
+	position: relative;
+	transition: background-color 700ms ease-in-out;
+	-moz-transition: background-color 700ms ease-in-out;
+	-webkit-transition: background-color 700ms ease-in-out;
+	-o-transition: background-color 700ms ease-in-out;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-o-box-sizing: content-box;
+	border: none;
+}
+
+a.fbkMetroStyleBtn span {
+	width: 38px;
+	height: 36px;
+	padding: 0;
+	margin: 0;
+	left: 0;
+	top: 0;
+	position: absolute;
+	background: url("../image/facebooklogin/fbkIconMetroBtn.png") no-repeat left top;
+}
+
+a.fbkMetroStyleBtn:hover {
+	background-color: #2e4b89;
+	color: #fff;
+	border: none;
+	text-shadow: none;
+}
+
+
+/* -- End -- */
+
+
+/* -- Facebook Rounded Login Button -- */
+
+a.fbkRoundedBtn {
+	display: inline-block;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 11px;
+	color: #fff;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	padding: 0 20px 0 57px;
+	background: url("../image/facebooklogin/roundedBtnBg.png") repeat-x left 0;
+	border: 1px solid #264076;
+	border-radius: 4px;
+	position: relative;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-o-box-sizing: content-box;
+	border: none;
+}
+
+a.fbkRoundedBtn span {
+	width: 37px;
+	height: 30px;
+	padding: 0;
+	margin: 0;
+	left: 0;
+	top: 0;
+	position: absolute;
+	background: url("../image/facebooklogin/fbkIconRoundedBtn.png") no-repeat left top;
+}
+
+a.fbkRoundedBtn:hover {
+	background: url("../image/facebooklogin/roundedBtnBg.png") repeat-x left -30px;
+	color: #fff;
+	border: none;
+	text-shadow: none;
+}
+
+a.fbkRoundedBtn:active {
+	background: url("../image/facebooklogin/roundedBtnBg.png") repeat-x left -60px;
+}
+
+a.fbkNoDesign {
+	border: none;
+	color: #1e91cf;
+}
+
+a.fbkNoDesign:hover {
+	color: #14628c;
+	background: none;
+	border: none;
+	text-shadow: none;
+}
+
+/* -- End -- */

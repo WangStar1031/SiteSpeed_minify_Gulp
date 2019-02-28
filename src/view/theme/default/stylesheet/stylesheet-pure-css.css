@@ -1,0 +1,152 @@
+/* input[type=checkbox]:not(old),
+input[type=radio   ]:not(old){
+  width     : 2em;
+  margin    : 0;
+  padding   : 0;
+  font-size : 12px;
+  opacity   : 0; margin-left: 4px;
+      -webkit-appearance: checkbox;
+} */
+
+/* radio and checkbox css */
+
+/* 
+date 2-3-2017
+ */
+
+
+ body{
+     height: 100% !important;
+ }
+
+ul.Itemchecklist input {
+    display: none;
+}
+
+input#cc_save_option_checkbox {
+    display: none;
+}
+
+/* ---------------------------------------------------- */
+
+.productOptionsChecklist input[type="radio"],
+.productOptionsChecklist input[type="checkbox"] {
+    display: none;
+    line-height: normal;
+    margin: 4px 0 0;
+}
+
+#checkout_checkboxes input[type="radio"],
+#checkout_checkboxes input[type="checkbox"] {
+    display: none;
+    line-height: normal;
+    margin: 4px 0 0;
+}
+
+input[type=checkbox]:not(old)+label,
+input[type=radio]:not(old)+label {
+    display: inline-block;
+    margin-left: 0;
+    line-height: 24px;
+    margin-bottom: 0;    
+}
+
+input[type="checkbox"]:not(old)+label>span,
+input[type="radio"]:not(old)+label>span {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #666666;
+    display: inline-block;
+    height: 24px;
+    margin: 0.25em 0.5em 0.25em 0.60em;
+    vertical-align: bottom;
+    width: 24px;
+    border-radius: 5px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type="checkbox"]:not(old)+label>span,
+    input[type="radio"]:not(old)+label>span {
+        background: #fff none repeat scroll 0 0;
+        border: 1px solid #666666;
+        display: inline-block;
+        height: 24px;
+        margin: 0.25em 0.5em 0.25em 0.60em;
+        vertical-align: bottom;
+        width: 24px;
+        border-radius: 0px;
+    }
+}
+
+input[type="checkbox"]:checked:not(old)+label>span::before {
+    color: #666666;
+    content: "\2713";
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 25px;
+    text-align: center;
+    text-shadow: 0 0 0.0714em rgb(102, 102, 102);
+    width: 22px;
+    line-height: 20px;
+}
+
+input[type=radio]:not(old):checked+label>span>span {
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    margin: 0.125em;
+    border: 0.0625em solid rgb(102, 102, 102);
+    border-radius: 0.125em;
+    /*  background       : rgb(153,204,102);
+  background-image :    -moz-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image :     -ms-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image :      -o-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image : -webkit-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image :         linear-gradient(rgb(179,217,140),rgb(153,204,102)); */
+}
+
+/********* Custom **********/
+
+input[type=radio]:not(old):checked+label>span>span {
+    width: auto;
+    height: 1.1em;
+    border: none;
+}
+
+input[type=radio]:not(old):checked+label>span>span:before {
+    /*	  color: #666666;*/
+    content: "\2713";
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 0.0714em rgb(102, 102, 102);
+    width: 20px;
+    line-height: 24px;
+    margin-top: -6px;
+    margin-left: -3px;
+}
+
+@media only screen and (max-width:320px) {
+    input[type=checkbox]:not(old)+label>span,
+    input[type="radio"]:not(old)+label>span {
+        height: 15px;
+        margin: 0 2px 8px 0;
+        width: 15px;
+        border-radius: 1px;
+    }
+    input[type="checkbox"]:checked:not(old)+label>span::before,
+    input[type=radio]:not(old):checked+label>span>span:before {
+        font-size: 20px;
+        margin-top: -10px;
+    }
+    .productOptionsChecklist input[type="checkbox"]:checked:not(old)+label>span::before,
+    .productOptionsChecklist input[type=radio]:not(old):checked+label>span>span:before {
+        font-size: 20px;
+        margin-top: 0px;
+    }
+    .productOptionsChecklist input[type="checkbox"]:checked:not(old)+label>span::before {
+        width: 14px;
+        line-height: 14px;
+    }
+}

@@ -1,0 +1,147 @@
+
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+<meta charset=utf-8>
+
+ <title>Your Website</title>
+ 
+    
+        <style type="text/css">
+    
+		
+        </style>
+</head>
+
+<body style="font-family: 'Gill Sans','Gill Sans MT','Myriad Pro','DejaVu Sans Condensed',Helvetica,Arial,sans-serif;">
+   <div class="order_outer" style=" max-width: 580px;background:#778b8b;margin:0 auto;padding: 3px; overflow: hidden;">
+			<div class="order_inner" style="float:left;margin: 3px 0;background:#8faaaa url('<?php echo BASE_URL; ?>upload/catalog/view/theme/default/image/register_email_templ_bg.png') no-repeat scroll 0 0">
+							
+								  <p style="margin:0;width:100%;text-align:center;"><img src="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/image/commerce.png" width="30" height="" /></p>
+								 <p style="margin: 0;padding: 0;text-align: center;width: 100%;color: #fff;font-size:18px;"><?php echo $text_greeting; ?> </p>
+								  <p style="margin:0; color: #555; font-size: 18px;text-align:center;"><?php echo $text_link; ?></p>
+										<p style="margin:0;width:100%;text-align:center;"><a href="<?php echo $link; ?>" style="color:#15c;font-size:16px">BiteHeist Order Info</a> </p>
+										<p style="margin:0;width:100%;text-align:center;color:#ccc;"> ------------------------------</p>
+			<div class="order_content_outer" style="float:left;width:80%;background:#fff;padding: 3%; margin: 0 7%; border-radius: 20px 20px 0 0;">
+								   
+								   <p style="margin:0;font-weight:bold; font-size: 16px;color: #555;"><?php echo $text_order_detail; ?></p> 
+								   <p style="margin:0;font-weight:normal; font-size: 16px;color: #000;"><?php echo '<strong>'.$locationName.'</strong>'; ?></p>
+								   <p style="margin:0;font-weight:normal; font-size: 16px;color: #000;">Order at <?php echo $data['date_added']; ?></p>
+								  
+								   <p style="margin:0;font-weight:normal; font-size: 16px;color: #000;"><?php echo $text_order_id; ?> <?php echo $order_id; ?></p>
+								   <p style="margin:0;font-weight:normal; font-size: 16px;color: #000;"><?php echo $products[0]['shipping_firstname'].' '.$products[0]['shipping_lastname']; ?></p>
+								   <p style="margin:0;font-weight:normal; font-size: 16px;color: #000;"><?php echo $order_delivery_method.' @ '.$combinedOrderTime.' '.$combinedOrderDateMonth ; ?></p>
+								 <?php if($full_delivery_address && trim($full_delivery_address) != '' ) { ?>  
+								   <p style="margin:0;font-weight:normal; font-size: 16px;color: #000;"><?php echo $full_delivery_address; ?></p>
+								  <?php } ?>
+								  
+								  
+								   <p class="email_link" style="margin:0;font-size: 16px;color: #333;" ><?php echo "Name: "; ?><?php echo $name; ?></p>		
+
+								   <p class="email_link" style="margin:0;font-size: 16px;color: #333;" ><?php echo $text_email; ?><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p>
+								   <p style="margin:0;font-size: 16px;font-weight:normal;color: #333; width: 100%;text-align: right;text-align: left;"><?php echo $text_telephone; ?> <span style="font-style:italic;font-weight: lighter; color: #666666;font-family: Segoe UI; font-weight:lighter;"><?php echo $telephone; ?> </span></p>
+								   <p style="margin:8px 0 0 0;font-weight:bold;font-size: 16px;color: #555;">Payment Details</p>
+								   <p style="margin:0;font-style:italic;color:grey;font-size: 16px;font-family: Segoe UI; font-weight:lighter;"><?php echo $payment_card_details; ?></p>
+								   
+ 
+								   <?php if($add_note && trim($add_note) != '' ) { ?>
+								     <p style="margin: 10px 0;"><span style="color:#555;font-size:17px;text-transform: uppercase;line-height: 29px;">NOTE:</span> <span style="color:#555;font-size:17px;"> <?php echo $add_note;?> </span></p>
+								   <?php } ?>
+								   <p style="margin:0;float:left;width:100%;text-align:center;color:#ccc;margin-bottom:0;font-size: 16px;">------------------------------------------------</p>
+								   
+								  
+								   
+					 <ul style="float:left;width:100%;padding:0;list-style:none; border-bottom: 2px solid #8d8d8d; padding-bottom: 15px;">
+									  <li style="float:left;width:100%;padding:0;list-style:none;margin-bottom:0;margin-left:0px;">
+									   <span style="float:left;width:auto;color: #555;font-size: 16px;  font-weight: bold;margin-left:0;"><?php echo $text_product; ?></span>
+									   
+									  <span  style="font-size:16px;color:#555;float:right;margin-left: 10px;  font-weight: bold;"><?php echo $text_price; ?></span>
+									   <span  style="font-size:16px;color:#555;float:right;  font-weight: bold;"><?php echo $text_quantity; ?></span>
+									  </li> 
+										  <?php foreach ($products as $product) { ?>
+							   
+										  <?php
+										   $product_name = trim($product['name']);
+										  if(strlen($product_name) < 1)continue;
+										  $optionCount = count($product['option']); 
+										  ?>
+									  <li style="float:left;width:100%;padding:0;list-style:none;margin-bottom:0px;margin-left:0;">
+									   <span style="float:left;width:auto;font-size: 16px;color:#000;"><?php echo $product['name']; ?></span>
+									   
+									   <span  style="font-size:16px;color:#555;float:right;margin-left: 18px;   font-style: italic;font-family: Segoe UI; font-weight:lighter;"><?php echo $product['uncalculatedPrice']; ?></span>
+									   <span  style="margin-top:-3px;font-size:16px;color:#666;float:right;font-weight:bold; "><?php echo $product['quantity']; ?></span>
+									  </li>
+									  <?php $i = 1; foreach ($product['option'] as $option) { ?>
+									  <li style="float:left;width:100%;padding:0;list-style:none;margin-bottom:0px;margin-left:0;">
+									   <div style="margin-bottom: 0px;  width: 100%;float:left;">
+		 										
+										<div style="width:auto;color:#666;font-size: 12px;  font-weight:normal;float:left; "> - <?php echo $option['value'].' x '; ?> <?php echo $option['name']; ?> </div>
+									   
+										<!--<div style="float:left;font-size: 12px;max-width:80%;color:#666;">  <?php// echo $option['value']; ?> </div>-->
+										
+										<div style="float:right;font-size: 16px; font-style: italic;color: #666;font-family: Segoe UI; font-weight:lighter;">
+										 <?php echo $option['price']; ?> 
+										</div>
+										
+									   </div>
+									  </li>
+									  
+									  
+
+									  <?php $i++; } ?>
+									  <!-- special instructions-->
+									<?php if(isset($product['special_instructions']) && strlen($product['special_instructions']) > 2) { ?>
+									<p style="margin:0;float:left;width:100%;color:#000;"><span style="  font-size: 16px;float:left;width:100%;">Special Instructions:</span>
+									<span style="  font-size: 12px;float:left;width:100%;font-weight: normal;color:#666;"> <?php echo $product['special_instructions']; ?> </span>
+									</p>
+									<?php } ?>
+
+								   <?php } //end foreach $products ?>
+									 
+					 </ul>
+									 
+									 <ul style="float:left;width:100%;padding:0;list-style:none;  margin: 0;" >
+										<?php foreach ($totals as $total) { ?>
+									  <li style="margin-left:0;"><p style=" margin: 0px 0;float:left;width:100%;"><b style="float:right;color:#555;font-size:16px; font-style: italic;margin-left:10px;width: 66px;text-align: right;font-family: Segoe UI; font-weight:lighter;"><?php echo $total['text']; ?></b>
+									  <strong style="color:#000;font-size:16px;font-weight:normal;float:right; "><?php echo $total['title']; ?>:</strong></p></li>
+									  <?php } ?>
+
+								  
+								 </ul>
+								 
+								 
+								 
+				<?php
+					if(isset($number) && !empty($number) ){
+						if($number != ''){
+							echo '<center style="color: #f44336; font-size:25px; font-style:italic; font-family: Segoe UI;">'.'<b>'."PAID".'</b>'.'</center>';			
+							
+						}
+					}				
+					if($products[0]['OrderTypeId'] == 2){ 
+						//echo "ORDER FOR LATER @ ".$combinedOrderTime;
+						echo '<center style="color:#2196f3; font-size:22px; font-style:italic; font-family: Segoe UI;">'."ORDER FOR LATER ".'<br>'.'<b>'.$combinedOrderTime_monthDate .' @ '. $combinedOrderTime_time.'</b>'.'</center>';
+					}
+				?>
+						</div>
+
+				</div>
+   </div>
+   
+   
+   
+		  <div class="block" style="max-width:580px;text-align: center; margin: 0 auto;">
+		  
+		  <p style="font-family: Helvetica, arial, sans-serif;color: #333;font-size:16px;">Please reply to this e-mail if you have any questions.</p>
+		  
+		  
+		 <p style="margin:0;text-align:center;">
+		 <img src="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/image/printer_logo.png" width="120" height="" />
+		 </p>
+		</div>
+
+</body>
+
+</html>

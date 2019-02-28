@@ -1,0 +1,747 @@
+<?php 
+
+/**
+ * Contains part of the Opencart Authorize.Net CIM Payment Module code.
+ *
+ * PHP version 5
+ *
+ * LICENSE: This source file is subject to memiiso license.
+ * Please see the LICENSE.txt file for more information.
+ * All other rights reserved.
+ *
+ * @author     memiiso <gel.yine.gel@hotmail.com>
+ * @copyright  2013-~ memiiso
+ * @license    Commercial License. Please see the LICENSE.txt file
+ */
+ 
+ /*
+  * Custom added features:
+  * - Allow registered user to checkout without saving CC
+  * - Integrated Pay at store / Pay now
+  */
+
+?>
+<!-- <h2><?php //echo $text_credit_card; ?></h2> -->
+<?php if (isset($error) && $error){ ?>
+  <div class="alert alert-error"><i class="fa fa-exclamation-circle"></i> <?php echo $error; ?></div>
+<?php }else { ?>
+
+<div class="" id="payment">
+  
+	<div class="form">
+		<?php if ($isguest) {
+			/* Start Quest Form  */
+		?>
+		<form action="" id="cimpayment" class="form-horizontal">
+		<fieldset>
+	
+		<div id="pay_now_div_guest">
+			<div id="guest_payment_option" >	
+				<table class="table table-bordered table-hover table-responsive">
+					<tr>
+						<td style="width:auto"><span class="required">*</span> <?php echo $entry_cc_number; ?></td>
+						<td><input class="form-control" type="text" name="cc_number" autocomplete="off" value="" /></td>
+					</tr>
+					<tr>
+						<td><span class="required">*</span> <?php echo $entry_cc_expire_date; ?></td>
+						<td><div class="col-sm-5 col-md-5 col-lg-5 padding-remove-all"><select name="cc_expire_date_month" class="form-control" style=" display: inherit;">
+								<?php foreach ($months as $month) { ?>
+								<option value="<?php echo $month['value']; ?>">
+									<?php echo $month['text']; ?>
+								</option>
+								<?php } ?>
+						</select></div><div class="col-sm-2 col-md-2 col-lg-2" style="font-size:175%;"> / </div><div class="col-sm-5 col-md-5 col-lg-5 padding-remove-all"><select name="cc_expire_date_year" class="form-control" style=" display: inherit;">
+								<?php foreach ($year_expire as $year) { ?>
+								<option value="<?php echo $year['value']; ?>">
+									<?php echo $year['text']; ?>
+								</option>
+								<?php } ?>
+						</select></div></td>
+					</tr>
+					<tr>
+						<td><?php echo $entry_cc_cvv2; ?></td>
+						<td><input class="form-control" type="text" name="cc_cvv2" autocomplete="off" value="" size="3" /></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		
+		<?php if( $authorizenet_cim_require_billing_adress == 'forcebillingadress'){ ?>			
+		<div id="payment_billing_address">	
+			<h3 onclick="$('#payment_billing_address_tbl').slideToggle();" style="cursor: pointer;" ><?php echo $text_validate_billing_adress; ?></h3>
+			<div id="payment_billing_address_tbl" style="<?php if(!$isguest && false) echo "display: none;"; ?>">
+			  <table class="table table-bordered table-hover" >
+				<tr>
+				  <td  style="width:auto"><span class="required">*</span> <?php echo $entry_firstname; ?></td>
+				  <td><input type="text" name="firstname" class="form-control"  value="<?php echo isset($payment_address['firstname'])? $payment_address['firstname']:''   ?>" /></td>
+				</tr>
+				<tr>
+				  <td><span class="required">*</span> <?php echo $entry_lastname; ?></td>
+				  <td><input type="text" name="lastname" class="form-control"  value="<?php echo isset($payment_address['lastname'])? $payment_address['lastname']:''   ?>" /></td>
+				</tr>
+				<tr>
+				  <td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+				  <td><input type="text" name="address_1" class="form-control"  value="<?php echo isset($payment_address['address_1'])? $payment_address['address_1'].' '.$payment_address['address_2']:''   ?>" /></td>
+				</tr>
+				<tr>
+				  <td><span class="required">*</span> <?php echo $entry_city; ?></td>
+				  <td><input type="text" name="city" class="form-control"  value="<?php echo isset($payment_address['city'])? $payment_address['city']:''   ?>" /></td>
+				</tr>
+				<tr>
+				  <td><span id="postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+				  <td><input type="text" name="postcode" class="form-control"  value="<?php echo isset($payment_address['postcode'])? $payment_address['postcode']:''   ?>" /></td>
+				</tr>
+				<tr>
+				  <td ></td>
+				  <td><select name="country_id"  class="form-control" style ="display:none" >
+						<option value=""><?php echo $text_select; ?></option>
+						  <option value="223" selected="selected">United States</option>
+						</select></td>
+				</tr>
+				<tr>
+				  <td><span class="required">*</span> <?php echo $entry_zone; ?></td>
+				  <td><select name="zone_id"  class="form-control" >
+					</select>
+					<?php if($isguest){ ?>
+					<input type="hidden" name="select_payment_account" value="create_new_credit_card" />
+					<?php } ?>
+				  </td>
+				</tr>
+			  </table>
+			</div>
+			</div>	
+				<?php  } ?>
+			</fieldset>	
+		</form>
+<?php } else { /* Start Cim Form  */	?>
+
+		<form action="" id="cimpayment" class="form-horizontal">
+		<fieldset>
+		<div class="row form-group ptype" <?php if(isset($payment_option) && $payment_option < 3 ){ ?>style="display:none;" <?php } ?>>
+			<div class="">
+				<div id="pay_now" onclick="selectedPaymentMethod(this.id)" class="col-sm-6 text-center" style="padding:2%;cursor:pointer;">
+				  <div class="full-width shop_btn pats">Pay Now</div>
+				</div>
+				<div id="pay_at_store" onclick="selectedPaymentMethod(this.id)" class="col-sm-6 text-center" style="padding:2%;cursor:pointer;">
+					<div class="full-width shop_btn pats">Pay at Store</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="pay_now_div" style="display:none;">
+		
+		<?php if (isset($cim_customer_profile->paymentProfiles)) {?>
+			<div class="checkout-container-header full-width">
+				<h4 style="text-align:left;">Use Saved Card</h4>
+			
+				<!-- <input type="radio" name="select_payment_account" onchange="$('#cim_payment_option2').slideUp();$('#without_saving_payment_option').slideUp();$('#cim_payment_option3').slideUp();$('#payment_billing_address').slideUp();" id="use_cim_payment_account" value="use_cim_payment_account"
+					checked="checked"> -->
+				<!--<label for="use_cim_payment_account" style="font-weight: bold;text-align:left;"><h4><?php //echo $text_select_paymentaccount; ?>Use Saved Card</h4></label>-->
+			</div>
+			<div id="cim_accounts"
+				onclick="displayCardFields('usingSavedCard');">				
+						<div id="cim_payment_option1">				
+						<select	name="customer_payment_profile_id" class="form-control" style="min-width: 255px; border:0px !important;">
+						<option	value=""><?php echo $text_select; ?></option>
+						
+							<?php foreach ($cim_customer_profile->paymentProfiles as $paymentcard) { ?>
+							<?php if ( isset($paymentcard->payment->creditCard) ) { ?>
+							<option <?php echo ($paymentcard->customerPaymentProfileId == $default_payment_profile_id) ? 'selected="selected"' : '' ;  ?>
+								value="<?php echo $paymentcard->customerPaymentProfileId; ?>">
+								<?php echo $text_select_prfx_credit_card.': '.$paymentcard->payment->creditCard->cardNumber; /* .' '.$paymentcard->payment->creditCard->expirationDate; */ 
+								if (isset($local_payment_profile_list['pid_'.$paymentcard->customerPaymentProfileId]) && ($local_payment_profile_list['pid_'.$paymentcard->customerPaymentProfileId]->cc_type)) {
+									echo ' - '.$local_payment_profile_list['pid_'.$paymentcard->customerPaymentProfileId]->cc_type;
+								}if (isset($paymentcard->payment->creditCard->nameOnAccount)) {
+									echo ' '.$paymentcard->payment->creditCard->nameOnAccount;
+								}
+								?> 
+							</option>
+							<?php  }else{  ?>
+							<option <?php echo ($paymentcard->customerPaymentProfileId == $default_payment_profile_id) ? 'selected="selected"' : '' ;  ?>
+								value="<?php echo $paymentcard->customerPaymentProfileId; ?>">
+								<?php echo $text_select_prfx_bank_account.': '.$paymentcard->payment->bankAccount->accountNumber ; 
+								if (isset($paymentcard->payment->bankAccount->nameOnAccount)) {
+									echo ' '.$paymentcard->payment->bankAccount->nameOnAccount;
+								}
+								?> 
+							</option>
+							<?php } //endif 
+								} ?>
+					  </select>
+					 </div>
+			</div>
+		<?php } ?>
+			<div class="clearfix"></div>
+			<div style="margin:10px 0 0 0;">
+				<!-- <input style="opacity:1; float:left; margin: 12px 0;" type="radio" name="select_payment_account" id="create_new_credit_card_without_save" <?php //if(! isset($cim_customer_profile->paymentProfiles)) echo 'checked="checked"'; ?> value="create_new_credit_card" onchange="$('#cim_payment_option3').slideUp();$('#cim_payment_option2').slideUp();$('#without_saving_payment_option').slideDown();$('#payment_billing_address').slideDown(); allow_cc_save(this.id);" />
+				<label style="margin:0;float:left; font-weight: bold;" for="create_new_credit_card_without_save"><h4>I want to use a new credit card</h4></label> -->
+				
+				<div class="checkout-container-header full-width">
+					<h4 style="text-align:left;">
+						<a href="javascript:void(0);" class="" style="width:100%; display: block;" id="cardDetails" onclick="displayCardFields('cardDetails');">Use a New Card</a>
+					</h4>
+				</div>
+				
+				
+			</div>
+			<div class="clearfix"></div>
+			<!-- <div>
+				<input style="opacity:1;float:left; margin: 12px 0;" type="radio" name="select_payment_account" id="create_new_credit_card" <?php //if(! isset($cim_customer_profile->paymentProfiles)) echo 'checked="checked"'; ?> value="create_new_credit_card" onchange="$('#cim_payment_option3').slideUp();$('#cim_payment_option2').slideDown();$('#without_saving_payment_option').slideUp();$('#payment_billing_address').slideDown();allow_cc_save(this.id);" />
+				<label style="margin:0;float:left;font-weight: bold;" for="create_new_credit_card"><h4><?php //echo $text_wanttouse_newcredit_card; ?></h4></label>
+			</div> -->
+			
+			<?php if($authorizenet_cim_disable_bank_payment != 'disable_bank_payment') { ?>
+				<div style="padding: 10px 0;">
+					<h3 style="text-align:left; margin:0;"><?php echo $text_wanttouse_bank_account; ?></h3>
+					<!-- <input type="radio" name="select_payment_account" onchange="$('#cim_payment_option2').slideUp();$('#cim_payment_option3').slideDown();$('#payment_billing_address').slideDown();"
+						id="create_new_bank_account" value="create_new_bank_account" /> -->
+					<!--<label for="create_new_bank_account" style="font-weight: bold;"><h4><?php //echo $text_wanttouse_bank_account; ?></h4></label>-->
+				</div>
+			<?php } ?>
+			
+			<input type="hidden" id="cc_save_option" name="cc_save_option" value="1" />
+			<input type="hidden" id="select_payment_account" name="select_payment_account" value="use_cim_payment_account" />
+			<div class="clearfix"></div>
+			<div id="custom_credit_card">
+				
+			</div>
+			<div class="clearfix"></div>
+			
+			<!-- The below code is to allow payment through card without saving it, even for signed-in users -->
+			<div id="custom_credit_card_widthout_save">
+				<!-- The html will be loaded dynamically <div id="without_saving_cc_html"> -->	
+			</div>
+			<div class="clearfix"></div>	
+			<!-- The above code is to allow payment through card without saving it, even for signed-in users -->
+			
+			
+			
+		<?php if($authorizenet_cim_disable_bank_payment != 'disable_bank_payment') { ?>
+			
+			<div id="custom_bank_account" onclick="$('#create_new_bank_account').click();">
+				<div id="cim_payment_option3" style="display: none;">	
+					<table class="table table-bordered table-hover" id="t_new_ba" style="">
+						<tr>
+							<td><span class="required">*</span> <?php echo $entry_ba_routingnumber; ?></td>
+							<td><input type="text" name="ba_routingnumber" class="form-control" autocomplete="off" value="" /></td>
+						</tr>
+						<tr>
+							<td><span class="required">*</span> <?php echo $entry_ba_accountnumber; ?></td>
+							<td><input type="text" name="ba_accountnumber" class="form-control" autocomplete="off" value="" /></td>
+						</tr>
+						<tr>
+							<td><span class="required">*</span> <?php echo $entry_ba_nameonaccount; ?></td>
+							<td><input type="text" name="ba_nameonaccount"  class="form-control" autocomplete="off" value="" /></td>
+						</tr>
+						<tr>
+							<td><?php echo $entry_ba_bankname; ?></td>
+							<td><input type="text" name="ba_bankname" class="form-control" autocomplete="off" value="" /></td>
+						</tr>
+						<tr style="display:none;">
+							<td><?php echo $entry_customer_type; ?></td>
+							<td>								
+							<input type="radio" name="ba_payment_customer_type" class="" checked="checked" id="bapayment_customer_type_individual" value="individual" /><label class="radio-inline"	for="bapayment_customer_type_individual"><?php echo $text_individual; ?> </label><br/>
+							<input type="radio" name="ba_payment_customer_type" class="" id="bapayment_customer_type_business" value="business" /><label class="radio-inline"	for="bapayment_customer_type_business"><?php echo $text_business; ?> </label>
+							</td>
+						</tr>							
+					</table>
+				</div>
+			</div>
+			<?php } ?>
+			
+		</div><!-- end pay now div -->	
+		
+		
+		
+	<?php if( $authorizenet_cim_require_billing_adress == 'forcebillingadress'){ ?>			
+		<div id="payment_billing_address" style="display:none;">	
+			<h3 onclick="payment_billing();" style="cursor: pointer;" ><?php echo $text_validate_billing_adress; ?>     &nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></h3>
+			<div id="payment_billing_address_tbl" style="<?php if(!empty($payment_address['address_1'])){ ?>display: none;<?php }else{ ?>display: none;<?php } ?><?php if(!$isguest && false) echo "display: none;"; ?>">
+			<?php if(!empty($payment_address['firstname'])) ?>
+			  <table class="table table-bordered table-hover" >
+				<tr>
+				  <td  style="width:auto"><span class="required">*</span> <?php echo $entry_firstname; ?></td>
+				  <td><input type="text" name="firstname" class="form-control"  value="<?php echo isset($payment_address['firstname'])? $payment_address['firstname']:''   ?>" /></td>
+				</tr>
+				<tr>
+				  <td><span class="required">*</span> <?php echo $entry_lastname; ?></td>
+				  <td><input type="text" name="lastname" class="form-control"  value="<?php echo isset($payment_address['lastname'])? $payment_address['lastname']:''   ?>" /></td>
+				</tr>
+				<tr>
+				  <td><span class="required">*</span> <?php echo $entry_address_1; ?></td>
+				  <td><input type="text" name="address_1" class="form-control" id="addresstext"  value="<?php echo isset($payment_address['address_1'])? $payment_address['address_1'].' '.$payment_address['address_2']:''   ?>" /></td>
+				</tr>
+				<tr>
+				  <td><span class="required">*</span> <?php echo $entry_city; ?></td>
+				  <td><input type="text" name="city" class="form-control"  value="<?php echo isset($payment_address['city'])? $payment_address['city']:''   ?>" /></td>
+				</tr>
+				<tr>
+				  <td><span id="postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
+				  <td><input type="text" name="postcode" class="form-control"  value="<?php echo isset($payment_address['postcode'])? $payment_address['postcode']:''   ?>" /></td>
+				</tr>
+				<tr class="always-hide">
+				  <td colspan="2"><select name="country_id"  class="form-control" style ="display:none" >
+						<option value=""><?php echo $text_select; ?></option>
+						  <option value="223" selected="selected">United States</option>
+						</select></td>
+				</tr>
+				<tr>
+				  <td><span class="required">*</span> <?php echo $entry_zone; ?></td>
+				  <td><select name="zone_id"  class="form-control" >
+					</select>
+					<?php if($isguest){ ?>
+					<input type="hidden" name="select_payment_account" value="create_new_credit_card" />
+					<?php } ?>
+				  </td>
+				</tr>
+			  </table>
+			</div>
+			</div>	
+				<?php  } ?>
+
+		</fieldset>	
+	</form>
+			
+	<?php } /* END Cim Form  */  ?>
+	</div>
+</div>
+
+<div class="buttons btn btn-primary button-block confirmBtn shop_btn conferm">
+    <input type="button" value="<?php echo $button_confirm; ?>" id="button-confirm" class="" /> <i style="color:#fff;" class="fa fa-check" aria-hidden="true"></i>
+</div>
+
+
+<!-- The below html will be loaded when the user is registered but selects not to save the cc info -->
+<div id="without_saving_cc_html" style="display:none;">
+	<div id="without_saving_payment_option" style="<?php //if(isset($cim_customer_profile->paymentProfiles)) echo "display: none;" ?>display:none;">	
+		<table class="table table-bordered table-hover">
+			<tr>
+				<td style="width:auto"><span class="required">*</span> <?php echo $entry_cc_number; ?></td>
+				<td><input class="form-control" type="text" name="cc_number" autocomplete="off" value="" /></td>
+			</tr>
+			<tr>
+				<td><span class="required">*</span> <?php echo $entry_cc_expire_date; ?></td>
+				<td><div class="col-sm-5 col-md-5 col-lg-5 padding-remove-all"><select name="cc_expire_date_month" class="form-control" style=" display: inherit;">
+						<?php foreach ($months as $month) { ?>
+						<option value="<?php echo $month['value']; ?>">
+							<?php echo $month['text']; ?>
+						</option>
+						<?php } ?>
+				</select></div><div class="col-sm-2 col-md-2 col-lg-2" style="font-size:175%;"> / </div><div class="col-sm-5 col-md-5 col-lg-5 padding-remove-all"><select name="cc_expire_date_year" class="form-control" style=" display: inherit;">
+						<?php foreach ($year_expire as $year) { ?>
+						<option value="<?php echo $year['value']; ?>">
+							<?php echo $year['text']; ?>
+						</option>
+						<?php } ?>
+				</select></div></td>
+			</tr>
+			<tr>
+				<td><?php echo $entry_cc_cvv2; ?></td>
+				<td><input class="form-control" type="text" name="cc_cvv2" autocomplete="off" value="" size="3" /></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<!-- The above html will be loaded when the user is registered but selects not to save the cc info -->
+
+
+
+<!-- The below html will be loaded when the user is registered and selects to save the cc info -->
+<div id="saving_cc_html" style="display:none;">
+	<div id="cim_payment_option2" style="<?php //if(isset($cim_customer_profile->paymentProfiles)) echo "display: none;" ?>">	
+		<table class="table table-bordered table-hover" >
+		<!-- 
+			<tr>
+				<td><?php //echo $entry_cc_owner; ?></td>
+				<td><input type="text" name="cc_owner" value="" /></td>
+			</tr>
+		 -->
+			<tr>
+				<td style="width:auto"><span class="required">*</span> <?php echo $entry_cc_number; ?></td>
+				<td><input class="form-control" type="text" name="cc_number" autocomplete="off" value="" /></td>
+			</tr>
+			<tr>
+				<td><span class="required">*</span> <?php echo $entry_cc_expire_date; ?></td>
+				<td><div class="col-sm-5 col-md-5 col-lg-5 padding-remove-all"><select name="cc_expire_date_month" class="form-control" style=" display: inherit;">
+						<?php foreach ($months as $month) { ?>
+						<option value="<?php echo $month['value']; ?>">
+							<?php echo $month['text']; ?>
+						</option>
+						<?php } ?>
+				</select></div><div class="col-sm-2 col-md-2 col-lg-2" style="font-size:175%;"> / </div><div class="col-sm-5 col-md-5 col-lg-5 padding-remove-all"><select name="cc_expire_date_year" class="form-control" style=" display: inherit;">
+						<?php foreach ($year_expire as $year) { ?>
+						<option value="<?php echo $year['value']; ?>">
+							<?php echo $year['text']; ?>
+						</option>
+						<?php } ?>
+				</select></div></td>
+			</tr>
+			<tr>
+				<td><?php echo $entry_cc_cvv2; ?></td>
+				<td><input class="form-control" type="text" name="cc_cvv2" autocomplete="off" value="" size="3" /></td>
+			</tr>												
+			<tr style="display:none;">
+				<td><?php echo $entry_customer_type; ?></td>
+				<td>
+					<input style="opacity:1;" type="radio" name="cc_payment_customer_type" checked="checked" id="payment_customer_type_individual" value="individual" />
+					<label style="margin:0;" for="payment_customer_type_individual"><?php echo $text_individual; ?> </label>
+					<br/>
+					<input style="opacity:1;" type="radio" name="cc_payment_customer_type" id="payment_customer_type_business" value="business" />
+					<label style="margin:0;" for="payment_customer_type_business"><?php echo $text_business; ?> </label>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="no-padding">
+					<div style="text-align:left; padding:8px;">
+						<input id="cc_save_option_checkbox" onchange="setCcSaveOption()" value="" type="checkbox" name="cc_save_option_checkbox" checked />
+						<label style="float:none; width:100%;" class="cc_save_option_checkbox_label" for="cc_save_option_checkbox"><span></span>Save For Future Use</label>
+					</div>	
+				</td>
+			</tr>	
+		</table>
+		
+	</div>
+</div>
+<!-- The above html will be loaded when the user is registered and selects to save the cc info -->
+
+<!-- This input filed is used to determin if the logged in user has selected pay now or pay at store -->
+<div id="selected_payment_method_div">
+	<input type="hidden" id="selected_payment_method" name="selected_payment_method" value="1" />
+</div>	
+
+<script type="text/javascript"><!--
+$('#button-confirm').on('click', function() {
+		
+	$.ajax({
+        url: 'index.php?route=checkout/confirm/single_page_checkout_save_order',
+        type: 'post',
+        data: $('#custom-checkout-form_part_1 input[type=\'text\'], #custom-checkout-form_part_1 input[type=\'email\'], #custom-checkout-form_part_1 input[type=\'date\'], #custom-checkout-form_part_1 input[type=\'datetime-local\'], #custom-checkout-form_part_1 input[type=\'time\'], #custom-checkout-form_part_1 input[type=\'password\'], #custom-checkout-form_part_1 input[type=\'hidden\'], #custom-checkout-form_part_1 input[type=\'checkbox\']:checked, #custom-checkout-form_part_1 input[type=\'radio\']:checked, #custom-checkout-form_part_1 textarea, #custom-checkout-form_part_1 select, #selected_payment_method_div input[type=\'text\'], #selected_payment_method_div input[type=\'hidden\']'),
+        dataType: 'json',
+        beforeSend: function() {
+			$('#button-register').button('loading');
+		},
+        complete: function() {
+            $('#button-register').button('reset');
+        },
+        success: function(json) {
+			
+            $('.alert, .text-danger').remove();
+            $('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                if (json['error']['warning']) {
+                    $('#checkout_contact').prepend('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+
+				for (i in json['error']) {
+					var element = $('#checkout_contact_' + i.replace('_', '-'));
+
+					if ($(element).parent().hasClass('input-group')) {
+						$(element).parent().after('<div class="text-danger">' + json['error'][i] + '</div>');
+					} else {
+						$(element).after('<div class="text-danger">' + json['error'][i] + '</div>');
+					}
+				}
+				
+				if(json['error']['full_delivery_address']){
+					$('#full_delivery_address').after('<div class="text-danger">' + json['error'][i] + '</div>');
+				}	
+				
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+            } else {
+				
+				if($('#selected_payment_method').val() == '1'){
+					var node = this;
+					$.ajax({
+						url: 'index.php?route=payment/authorizenet_cim/send_single',
+						type: 'post',
+						data: $('#cimpayment').serialize(),
+						dataType: 'json',		
+						beforeSend: function() {
+							$('#button-confirm').button('loading');
+						},
+						complete: function() {
+							// $('#button-confirm').button('reset');
+						},				
+						success: function(json) {
+							if (json['error']) {
+								$('#button-confirm').button('reset');					
+								<?php if ($authorizenet_cim_use_jquerydialog == 'usejquerdialog') { ?>
+								json['error'] = json['error'].replace(/\n/g, '<br />'); 
+								$("<div>"+json['error']+"</div>").dialog({
+									modal: true,
+									buttons: {
+										<?php echo $text_close; ?>: function() {
+										$( this ).dialog( "close" );
+										$('.attention').remove();
+										}
+									}
+									});
+							<?php }else {?>
+							alert(json['error']);
+						  <?php } ?>					
+							}
+						   if (json['success_held']) {					
+								<?php if ($authorizenet_cim_use_jquerydialog == 'usejquerdialog') { ?>
+								json['success_held'] = json['success_held'].replace(/\n/g, '<br />'); 
+								$("<div>"+json['success_held']+"</div>").dialog({
+									modal: true,
+									buttons: {
+										<?php echo $text_close; ?>: function() {
+										$( this ).dialog( "close" );
+										location = json['checkout_success_url'];
+										}
+									}
+									});
+								<?php }else {?>
+								alert(json['success_held']);
+								 location = json['checkout_success_url'];
+							  <?php } ?>
+								 location = json['checkout_success_url'];
+							   }else if (json['checkout_success_url']) {
+									location = json['checkout_success_url'];
+								}
+						},
+						error: function(xhr, ajaxOptions, thrownError) {
+								$('#button-confirm').button('reset');
+								alert(thrownError);
+							}
+					});
+				}else{
+					$.ajax({
+						type: 'get',
+						url: 'index.php?route=payment/free_checkout/custom_pay_at_store_confirm',
+						cache: false,
+						beforeSend: function() {
+							$('#button-confirm').button('loading');
+						},
+						complete: function() {
+							$('#button-confirm').button('reset');
+						},
+						success: function() {
+							location = 'index.php?route=checkout/success';
+						}
+					});
+				}	
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+	
+	
+});
+
+
+//--></script>
+<script type="text/javascript"><!--
+$('select[name=\'country_id\']').on('change', function() {
+	$.ajax({
+		url: 'index.php?route=account/account/country&country_id=' + this.value,
+		dataType: 'json',
+		beforeSend: function() {
+			$('select[name=\'country_id\']').after(' <i class="fa fa-circle-o-notch fa-spin"></i>');
+		},
+		complete: function() {
+			$('.fa-spin').remove();
+		},
+		success: function(json) {
+			$('.fa-spin').remove();
+	
+			if (json['postcode_required'] == '1') {
+				$('input[name=\'postcode\']').parent().parent().addClass('required');
+			} else {
+				$('input[name=\'postcode\']').parent().parent().removeClass('required');
+			}
+	
+			html = '<option value=""><?php echo $text_select; ?></option>';
+	
+			if (json['zone']) {
+				for (i = 0; i < json['zone'].length; i++) {
+					html += '<option value="' + json['zone'][i]['zone_id'] + '"';
+	
+					if (json['zone'][i]['zone_id'] == '<?php echo $zone_id; ?>') {
+						html += ' selected="selected"';
+			  		}
+	
+			  		html += '>' + json['zone'][i]['name'] + '</option>';
+				}
+			} else {
+				html += '<option value="0" selected="selected"><?php echo $text_none; ?></option>';
+			}
+	
+			$('select[name=\'zone_id\']').html(html);
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});
+});
+
+$('select[name=\'country_id\']').trigger('change');
+//--></script>
+<script type="text/javascript"><!--
+/*
+$( document ).ready(function() {
+	// setTimeout(function(){ var id = $('input[name=\'select_payment_account\']:checked').attr('id');
+	// alert(id); }, 3000);
+	var id = $('input[name=\'select_payment_account\']:checked').attr('id');
+	// alert(id);
+	allow_cc_save(id);
+    
+});
+
+function allow_cc_save(id){
+	
+	if(id == 'create_new_credit_card_without_save'){
+		
+		$('#create_new_credit_card_without_save').val('create_new_credit_card');
+		
+		
+		$('#cc_save_option').val('0');
+		$('#custom_credit_card').find('div#cim_payment_option2').remove();
+		
+		setTimeout(function(){ 
+			var load_ws_html =  $('#without_saving_cc_html').html();
+		
+			$('#custom_credit_card_widthout_save').html(load_ws_html);
+
+		}, 400);
+		
+		
+	}else if(id == 'create_new_credit_card'){
+
+		$('#cc_save_option').val('1');
+		$('#custom_credit_card_widthout_save').find('div#without_saving_payment_option').remove();
+		
+		
+		setTimeout(function(){ 
+			var load_s_html =  $('#saving_cc_html').html();
+		
+			$('#custom_credit_card').html(load_s_html);
+
+		}, 400);		
+	}	
+	
+} */
+
+$( document ).ready(function() {
+	
+	var chk_payment_profiles = '<?php echo (isset($cim_customer_profile->paymentProfiles) ? true : false)?>';
+
+	if(chk_payment_profiles == '' || chk_payment_profiles == 'undefined'){
+		displayCardFields('cardDetails');
+		$('#cardDetails').addClass('greyThisBtn');
+	}else{
+		$('#cardDetails').removeClass('greyThisBtn');
+	}	
+	setCcSaveOption();
+	
+});	
+
+<?php 
+	$p_option = ''; 
+	if(isset($payment_option) && !empty($payment_option)){ 
+		$p_option = $payment_option; 
+	} 
+?>
+var payment_option = '<?php echo $p_option; ?>';
+//1 for pay at store, 2 for pay now, 3 for both, empty for not set(will work as 3)
+
+if(payment_option == '1'){
+	console.log(payment_option);
+	//When only pay at store option is given for this shop
+	$('#pay_at_store').trigger('click');
+}else if(payment_option == '2'){
+	console.log(payment_option);
+	//When only pay now option is given for this shop
+	$('#pay_now').trigger('click');
+}else{
+	console.log(payment_option);
+	//When both options is given for this shop
+	$('#pay_now').trigger('click');
+}
+
+
+function displayCardFields(id){
+	
+	
+	
+	if(id == 'cardDetails'){
+		$('#cardDetails').addClass('greyThisBtn');
+		$('#payment_billing_address_tbl').slideToggle();
+		setTimeout(function(){ 
+				var load_s_html =  $('#saving_cc_html').html();
+				$('#custom_credit_card').html(load_s_html);
+				if(payment_option == '1'){
+					$('#payment_billing_address').hide();
+				}else{	
+					$('#payment_billing_address').slideDown();
+				}	
+				$("#cc_save_option_checkbox").prop('checked', true);
+				$('#select_payment_account').val('create_new_credit_card');
+
+		}, 400);
+	}else{
+		$('#cardDetails').removeClass('greyThisBtn');
+		$('#custom_credit_card').find('div#cim_payment_option2').remove();
+		$('#select_payment_account').val('use_cim_payment_account');
+		$('#payment_billing_address').slideDown();
+	}	
+}	
+
+function setCcSaveOption(){
+
+	if ( $('#cc_save_option_checkbox').is(':checked') ) {
+		$('#cc_save_option').val('1');
+		// var a = $('#cc_save_option').val('1');
+		// var b = $('#cc_save_option').attr(a); 
+		// console.log(b);
+		
+		
+		$('#payment_billing_address').show();
+		//$('#select_payment_account').val('create_new_credit_card');
+	}else {
+		
+	$('#cc_save_option').val('0');
+	// var d =	$('#cc_save_option').val('0');
+	// var c =	$('#cc_save_option').attr(d);
+	// console.log(c);
+		$('#payment_billing_address').hide();
+		//$('#select_payment_account').val('use_cim_payment_account');
+	}
+	
+}
+
+
+
+
+function selectedPaymentMethod(id){
+	if(id == 'pay_at_store'){
+		$('#selected_payment_method').val('0');
+		$('#pay_at_store div').addClass('highlight');
+		$('#pay_now div').removeClass('highlight');
+		$('#pay_now_div').hide('slow');
+		$('#payment_billing_address').hide('slow');
+	}else{
+		$('#pay_at_store div').removeClass('highlight');
+		$('#pay_now div').addClass('highlight');
+		$('#selected_payment_method').val('1');
+		$('#pay_now_div').show('slow');
+		$('#payment_billing_address').show('slow');
+	}	
+}	
+
+function payment_billing(){
+	//alert(123);
+	
+	$('#payment_billing_address_tbl').slideToggle();
+}
+
+//--></script>
+<?php } //end isset($error) ?>

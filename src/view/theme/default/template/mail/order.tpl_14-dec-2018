@@ -1,0 +1,708 @@
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Your Store - Order 25</title>
+      <style type="text/css">
+			 
+			/* Client-specific Styles */
+			 #outlook a {
+				padding:0;
+			}
+			/* Force Outlook to provide a "view in browser" menu link. */
+			 body{
+				width:100% !important;
+				 -webkit-text-size-adjust:100%;
+				 -ms-text-size-adjust:100%;
+				 margin:0;
+				 padding:0;
+			}
+			/* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+			 .ExternalClass {
+				width:100%;
+			}
+			/* Force Hotmail to display emails at full width */
+			 .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+				line-height: 100%;
+			}
+			/* Force Hotmail to display normal line spacing. More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+			 #backgroundTable {
+				margin:0;
+				 padding:0;
+				 width:100% !important;
+				 line-height: 100% !important;
+			}
+			 img {
+				outline:none;
+				 text-decoration:none;
+				border:none;
+				 -ms-interpolation-mode: bicubic;
+			}
+			 a img {
+				border:none;
+			}
+			 .image_fix {
+				display:block;
+			}
+			 p {
+				 margin: 0px 0px !important;
+				 color: #333333;
+				 font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+				 font-size: 16px;
+			}
+			 table td {
+				border-collapse: collapse;
+			}
+			 table {
+				 border-collapse:collapse;
+				 mso-table-lspace:0pt;
+				 mso-table-rspace:0pt;
+			}
+			/*a {
+				color: #e95353;
+				text-decoration: none;
+				text-decoration:none!important;
+			}
+			*/
+			/*STYLES*/
+			 table[class=full] {
+				 width: 100%;
+				 clear: both;
+			}
+			/*################################################*/
+			/*IPAD STYLES*/
+			/*################################################*/
+			 @media only screen and (max-width: 640px) {
+				 a[href^="tel"], a[href^="sms"] {
+					 text-decoration: none;
+					 color: #ffffff;
+					/* or whatever your want */
+					 pointer-events: none;
+					 cursor: default;
+				}
+				 .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+					 text-decoration: default;
+					 color: #ffffff !important;
+					 pointer-events: auto;
+					 cursor: default;
+				}
+				 table[class=devicewidth] {
+					width: 440px!important;
+					text-align:center!important;
+				}
+				 table[class=devicewidthinner] {
+					width: 420px!important;
+					text-align:center!important;
+				}
+				 table[class="sthide"]{
+					display: none!important;
+				}
+				 img[class="bigimage"]{
+					width: 420px!important;
+					height:219px!important;
+				}
+				 img[class="col2img"]{
+					width: 420px!important;
+					height:258px!important;
+				}
+				 img[class="image-banner"]{
+					width: 440px!important;
+					height:106px!important;
+				}
+				 td[class="menu"]{
+					text-align:center !important;
+					 padding: 0 0 10px 0 !important;
+				}
+				 td[class="logo"]{
+					padding:10px 0 5px 0!important;
+					margin: 0 auto !important;
+				}
+				 img[class="logo"]{
+					padding:0!important;
+					margin: 0 auto !important;
+				}
+			}
+			/*##############################################*/
+			/*IPHONE STYLES*/
+			/*##############################################*/
+			 @media only screen and (max-width: 480px) {
+				 a[href^="tel"], a[href^="sms"] {
+					 text-decoration: none;
+					 color: #ffffff;
+					/* or whatever your want */
+					 pointer-events: none;
+					 cursor: default;
+				}
+				 .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+					 text-decoration: default;
+					 color: #ffffff !important;
+					 pointer-events: auto;
+					 cursor: default;
+				}
+				 table[class=devicewidth] {
+					width: 280px!important;
+					text-align:center!important;
+				}
+				 table[class=devicewidthinner] {
+					width: 260px!important;
+					text-align:center!important;
+				}
+				 table[class="sthide"]{
+					display: none!important;
+				}
+				 img[class="bigimage"]{
+					width: 260px!important;
+					height:136px!important;
+				}
+				 img[class="col2img"]{
+					width: 260px!important;
+					height:160px!important;
+				}
+				 img[class="image-banner"]{
+					width: 280px!important;
+					height:68px!important;
+				}
+			}
+			 .block #backgroundTable tbody tr td .devicewidth tbody tr td .devicewidthinner tbody tr td .devicewidthinner tbody tr td {
+				 color: #999;
+			}
+			 font1 {
+				 color: #FFF;
+			}
+			 font1 {
+				 font-weight: bold;
+			}
+			 font11 {
+				 color: #FFF;
+			}
+			 .font1 {
+				 color: #666;
+				 font-weight: normal;
+				 font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif;
+			}
+			 .contact {
+font-style: normal; font-weight: lighter; font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS",Verdana, sans-serif; color: #666666;
+			}
+			 .headertable {
+				 font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+				 font-size: 16px;
+			}
+			 .boldisolado {
+				 font-weight: bold;
+			}
+			p{
+				margin: 5px 0px !important;
+			}
+			
+
+      </style>
+   </head>
+   <body>
+      <!--<div class="block">
+ 
+         <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="preheader">
+            <tbody>
+               <tr>
+                  <td width="100%">
+                     <table width="580" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
+                        <tbody>
+ 
+                           <tr>
+                              <td width="48%" height="20">&nbsp;</td>
+                              <td width="52%" height="20">&nbsp;</td>
+                           </tr>
+ 
+                           <tr>
+                              <td width="48%" height="5"></td>
+                           </tr>
+                           
+                        </tbody>
+                     </table>
+                     <table width="580" cellpadding="4" cellspacing="10" border="0" align="center" class="devicewidth" bgcolor="#E8E8E8">
+                        <tbody>
+                           
+                           <tr align="center" >
+                              <td width="30%" height="50"  align="center" bgcolor="#ACACAC"><img src="https://biteheist.com/ordering/common/upload/catalog/view/theme/default/image/give-your-feedback-icon.png" class="headmenu-icon" /></td>
+							  
+                              <td width="50%" height="30"  align="center" bgcolor="#818181"><img src="https://biteheist.com/ordering/common/upload/catalog/view/theme/default/image/place-another-order-icon.png" class="headmenu-icon" /></td>
+                           </tr>
+ 
+                           <tr>
+                              <td width="48%" height="5"></td>
+                           </tr>
+                          
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+          
+      </div>-->
+      <div class="block">
+         <!-- start of header -->
+         <table width="100%"  bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="header">
+            <tbody>
+               <tr>
+                  <td>
+                     <table width="580" bgcolor="#eeeeee" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" hlitebg="edit" shadow="edit">
+                        <tbody>
+                           <tr>
+                              <td>
+                                 <!-- logo --><!-- End of logo --><!-- End of Menu -->
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <!-- end of header -->
+      </div>
+      <div class="block">
+         <!-- image + text -->
+         <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="bigimage">
+            <tbody>
+               <tr>
+                  <td>
+                     <table  width="580" height="" align="center" cellspacing="0" cellpadding="0" border="0" class="devicewidth" modulebg="edit">
+                        <tbody>
+                           <tr>
+                              <td>
+                                 <table width="580" height="80" cellpadding="6" cellspacing="0" border="0" align="center" class="devicewidth" modulebg="edit" bgcolor="#E8E8E8">
+                                    <tbody>
+                                       <!-- Spacing //style="font-family: 'Times New Roman', Times, serif; font-size: 18px; line-height: 20px;"-->
+                                       <tr>
+                                          <td  width="100%" height="20" align="left" >
+                                            <!-- Thank you for your order placed at: Kyle Bagley Location.-->
+                                            <p> <?php echo $thanks_msg; ?> </p>
+                                          </td>
+                                          <td><img width="140" height="" src="https://biteheist.com/ordering/common/upload/catalog/view/theme/default/image/goodeats-logo.png" /></td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td align="center"></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div class="block">
+      </div>
+      <div class="block">
+         <!-- start of left image -->
+         <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="leftimage">
+            <tbody>
+               <tr>
+                  <td>
+                     <table width="580" height="80" cellpadding="6" cellspacing="0" border="1" align="center" class="devicewidth" modulebg="edit">
+                        <tbody>
+                           <!-- Spacing -->
+                           <tr>
+                              <td height="20" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;"><?php echo $store_name;?></td>
+                              <td height="" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-style: normal; font-size: 12px; font-weight: normal;">
+                                   <p><?php echo $locationName; ?></p>
+                           </tr>
+                           <tr>
+                              <td height="20" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">Order Info</td>
+                              <td height="" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-style: normal; font-size: 12px; font-weight: normal;">
+                                <?php echo $order_id; ?>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td height="20" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">Order Time</td>
+                              <td height="" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-style: normal; font-size: 12px; font-weight: normal;">
+                                <?php echo $data['date_added']; ?>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td height="20" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">Order Type</td>
+                              <td height="" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-style: normal; font-size: 12px; font-weight: normal;">
+							  <?php if($products[0]['delivery_address'] && trim($products[0]['delivery_address']) != '' ) { ?> 
+							  
+                                 <img src="https://biteheist.com/ordering/common/upload/catalog/view/theme/default/image/delivery-symbol.png" width="40" height="" alt=""/> &nbsp;&nbsp; <span style="alignment-baseline: middle">Delivery</span>
+								<?php }else{ ?> 
+								 	Pickup
+								<?php } ?> 
+                              </td>
+                           </tr>
+                           <tr>
+                              <td height="20" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;"><?php if($products[0]['delivery_address'] && trim($products[0]['delivery_address']) != '' ) {?> Delivery Time<?php }else{ ?>Pickup Time	<?php } ?></td>
+                              <td height="" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-style: normal; font-size: 12px; font-weight: normal;">
+                                <?php echo $combinedOrderTime; ?>
+                              </td>
+                           </tr>
+						  <?php if($products[0]['delivery_address'] && trim($products[0]['delivery_address']) != '' ) {?> 
+                           <tr>
+                              <td height="20" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">Delivery Address</td>
+                              <td height="" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-style: normal; font-size: 12px; font-weight: normal;">
+                                 <?php echo $products[0]['delivery_address']; ?>
+                              </td>
+                           </tr>
+						  <?php } ?>
+                           <tr>
+                              <td height="20" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">Payment</td>
+                              <td height="" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-style: normal; font-size: 12px; font-weight: normal;">
+							  
+							<?php if(isset($number) && !empty($number) ){ ?>
+                                 Paid: <?php echo '$'.sprintf("%.2f",$total_amt); ?>
+							<?php }else{ ?>
+								Un Paid: <?php echo '$'.sprintf("%.2f",$total_amt); ?> 
+							<?php }?>
+							
+                              </td>
+                           </tr>
+                           
+						   
+						   <tr>
+						    <td height="20" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">Note:</td>
+							<td height="" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-style: normal; font-size: 12px; font-weight: normal;">
+							<?php if($add_note && trim($add_note) != '' ) { ?>
+									<?php echo $add_note; ?>
+							<?php }else{ ?>	
+							
+							<?php } ?>
+							</td>
+						   </tr>
+						   
+						   
+						   
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         </table>
+         </td>
+         </tr>
+         </tbody>
+         </table>
+      </div>
+      <div class="block">
+      </div>
+      <div class="block">
+         <!-- start of left image -->
+         <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="leftimage">
+            <tbody>
+               <tr>
+                  <td>
+                     <table width="580" height="80" cellpadding="6" cellspacing="0" border="1" align="center" class="devicewidth" modulebg="edit">
+                        <tbody>
+                           <!-- Spacing -->
+                           <tr>
+                              <td  height="20" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">Customer Information</td>
+                              <td height="" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-style: normal; font-size: 12px; font-weight: normal;">
+                                 <p><?php echo $locationName; ?></p>
+                           </tr>
+                           <tr>
+                              <td height="20" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">Customer Name</td>
+                              <td height="" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-style: normal; font-size: 12px; font-weight: normal;">
+                                <?php echo $products[0]['shipping_firstname'].' '.$products[0]['shipping_lastname'];  ?> 
+                              </td>
+                           </tr>
+                           <tr>
+                              <td height="20" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">Order Phone</td>
+                              <td height="" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-style: normal; font-size: 12px; font-weight: normal;">
+                                 <?php echo $telephone; ?>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td height="20" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;">Order Email</td>
+                              <td height="" class="font1" align="left" style="padding-left: 16; color: #666; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; font-style: normal; font-size: 12px; font-weight: normal;">
+                                 <?php echo $email; ?>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <!-- end of left image -->
+      </div>
+      <div class="block">
+         <!-- start of left image -->
+         <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="rightimage">
+            <tbody>
+               <tr>
+                  <td>
+                     <table width="580" height="80" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" modulebg="edit">
+                        <tbody>
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <!-- end of left image -->
+      </div>
+      <div class="block">
+         <!-- fulltext -->
+         <table width="100%" bgcolor="#f6f4f5" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="fulltext">
+            <tbody>
+               <tr>
+                  <td>
+                     <table bgcolor="#ffffff" width="580" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth" modulebg="edit">
+                        <tbody>
+                           <!-- Spacing -->
+                           <!-- Spacing -->
+                           <tr>
+                              <td>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <!-- end of fulltext -->
+      </div>
+      <div class="block">
+         <!-- Start of 2-columns -->
+         <table width="100%" bgcolor="#f6f4f5" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="2columns">
+            <tbody>
+               <tr>
+                  <td>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <!-- End of 2-columns -->   
+      </div>
+      <div class="block">
+         <!-- 3-columns padding: 0px 2px 1px 3px;-->  
+         <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="3columns">
+            <tbody>
+               <tr>
+                  <td>
+                     <table width="580" align="center" cellspacing="0" cellpadding="0" border="0"  class="devicewidth" modulebg="edit">
+                        <tbody>
+                           <tr>
+                              <td width="100%" height="20" >
+                                 <table width="100%" border="1" cellspacing="0" cellpadding= "5" bordercolor="#CCCCCC" style="border: 1px solid #c8c1c1;">
+                                    <tr bgcolor="#F4F4F4" style="border: 1px solid #c8c1c1; ">
+                                       <td colspan="2" style="border: 1px solid #c8c1c1; "><span class="contact" style=" font-style: normal; font-weight: lighter; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS',Verdana, sans-serif; color: #666666;">Quantity</span></td>
+									   
+                                       <td width="100%" height="30" align="left" style="border: 1px solid #c8c1c1;"><span class="contact" style=" font-style: normal; font-weight: lighter; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS',Verdana, sans-serif; color: #666666;">Item</span></td>
+									   
+                                       <td width="100%" font-size= "15px" height="30" align="right"  style="border: 1px solid #c8c1c1;"><span class="contact" style=" font-style: normal; font-weight: lighter; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS',Verdana, sans-serif; color: #666666;">Price</span></td>
+                                    </tr>
+										
+								 <?php 
+								$prepTimeArr = array();
+								$tempArrOption = array();
+									foreach($products as $product){
+										$product_name	=	trim($product['name']);
+										if(strlen($product_name) < 1)continue;
+										$tempArrOption = array();
+											$i  =	1;
+											$j =	0;
+										$prepTimeArr[] = $product['prep_time'];							
+									?>									
+										
+									
+									
+									<tr bgcolor="#eeeeee" style="border: 1px solid #c8c1c1;">
+                                       <td colspan="2" align="center" style="border: 1px solid #c8c1c1;"><?php echo $product['quantity']; ?></td>
+                                       <td width="100%" height="30"  align="left" style="padding:10; border-left: 10; border: 1px solid #c8c1c1;"  ><span class="contact" style=" font-style: normal; font-weight: lighter; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS',Verdana, sans-serif; color: #666666;"><?php echo $product['name']; ?> </span></td>
+									   
+									<?php
+										$netOptionPriceArr = array();
+											foreach ($product['option'] as $option) { 
+												$netOptionPriceArr[] = $option['price_prefix'].str_ireplace('$', '', $option['price']);
+											}
+											
+										$netOptionPrice = array_sum($netOptionPriceArr);
+										
+										// if($netOptionPrice > 0){
+											$netProdcutPrice = str_ireplace('$', '', $product['price'])-$netOptionPrice;
+											$netProdcutPrice = floor($netProdcutPrice*100)/100; 
+											$netProdcutPrice = sprintf("%.2f",$netProdcutPrice); // to make it to 2 decimal places	
+										// }else{ 
+											
+									// };
+									?>										   
+									   
+									<td width="100%" height="30" align="right" style="padding:6; border: 1px solid #c8c1c1;"><span class="contact" style=" font-style: normal; font-weight: lighter; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS',Verdana, sans-serif; color: #666666;"><?php echo '$'.$netProdcutPrice * $product['quantity']; ?></span></td>
+									
+									</tr>
+									
+								<?php foreach ($product['option'] as $option) { ?>	
+                                    <tr bgcolor="#F4F4F4" style="border: 1px solid #c8c1c1;">
+									<?php if(!in_array($option['name'],$tempArrOption)){  ?>
+                                       <td colspan="2" style="border: 1px solid #c8c1c1;"></td>
+                                       <td width="100%" height="30" align="left" style="padding:10; border-left: 16; border: 1px solid #c8c1c1;"><span class="contact" style=" font-style: normal; font-weight: lighter; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS',Verdana, sans-serif; color: #666666;"><b><?php echo $option['name']. ':'; ?></b></span></td>
+                                       <td width="100%" height="30" align="right" style="padding:6; border: 1px solid #c8c1c1;" ><span class="contact">&nbsp;</span></td></tr>
+									<?php 	
+											$tempArrOption[] = $option['name'] ;
+											$j 	=	1;
+											$i 	=   0;	
+										}
+									?>	   
+ 
+								
+								<?php if (trim($option['value'])!=''){ ?>
+                                    <tr bgcolor="#eeeeee" style="border: 1px solid #c8c1c1;">
+                                       <td colspan="2" style="border: 1px solid #c8c1c1;"></td>
+                                        <td width="100%" height="30" align="left" style="padding:10; border-left: 26; border: 1px solid #c8c1c1;"><span class="contact" style=" font-style: normal; font-weight: lighter; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS',Verdana, sans-serif; color: #666666;"><?php if( $option['option_qty'] !=0 ){echo $option['option_qty'].' x ' ;}else{  } ?><?php echo $option['value']; ?></span></td>
+								<?php 
+									if($option['price'] != '$0.00') {
+										$option_price =	'';
+										$option_price =	str_replace('$', '', $option['price']) * $product['quantity'];
+									  if($option_price == 0){ 
+								?>
+									<td style="font-size: 12px; border: 1px solid #c8c1c1;">--</td>	
+								<?php } else{?>								
+                                       <td width="100%" height="30" align="right" style="padding:6; border: 1px solid #c8c1c1;"><span class="contact" style=" font-style: normal; font-weight: lighter; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS',Verdana, sans-serif; color: #666666;"><?php echo '$'.sprintf("%.2f",$option_price); ?></span></td>
+								<?php } }else{?>
+								<td></td>	<?php } ?>
+                                    </tr>
+								<?php }else{ ?>
+
+									<tr>
+									 <td colspan="2"></td>
+									 <td ></td>
+								 	 <td></td>
+									</tr>
+									
+								<?php } ?>
+									
+								<?php } ?>
+
+						<?php if(isset($product['special_instructions']) && $product['special_instructions'] != ''){ ?>			
+
+									
+                                    <tr bgcolor="#eeeeee" style="border: 1px solid #c8c1c1;">
+                                       <td colspan="2" style="border: 1px solid #c8c1c1;"></td>
+                                       <td width="100%" height="30" align="left" style="padding:10;border-left: 16; border: 1px solid #c8c1c1;"><span class="contact" ><b>Special Instructions</b></span></td>
+                                       <td width="100%" height="30" align="right" style="border: 1px solid #c8c1c1; padding:6;"><span class="contact">&nbsp;</span></td>
+                                    </tr>
+                                    <tr bgcolor="#eeeeee" style="border: 1px solid #c8c1c1;">
+                                       <td colspan="2" style="border: 1px solid #c8c1c1;"></td>
+                                       <td width="100%" height="30" align="left" style="border: 1px solid #c8c1c1; padding:10;"><span class="contact"><?php echo $product['special_instructions']; ?></span></td>
+                                       <td width="100%" height="30" align="right" style="padding:6; border: 1px solid #c8c1c1;"><span class="contact">&nbsp;</span></td>
+                                    </tr>									
+									
+									
+									
+									
+									
+									
+								 <?php }  ?>
+						<?php } ?>		
+                                 </table>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 <table width="100%" border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #c8c1c1;">
+								  <?php foreach ($totals as $total) { ?> 
+                                    <tr bgcolor="#F4F4F4" style="border: 1px solid #c8c1c1;">
+                                       
+                                       <td width="100%" height="30" align="right" style="padding:6;border: 1px solid #c8c1c1;"><span class="contact" style=" font-style: normal; font-weight: lighter; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS',Verdana, sans-serif; color: #666666;"><?php echo $total['title']; ?></span></td>
+                                       <td width="100%" height="30" align="right" style="padding:6; border: 1px solid #c8c1c1;"><span class="contact" style=" font-style: normal; font-weight: lighter; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS',Verdana, sans-serif; color: #666666;"><?php echo $total['text']; ?></span></td>
+                                    </tr>
+								 <?php } ?>	
+								 
+						   <?php if(isset($number) && !empty($number) ){ ?>
+							<tr bgcolor="#eeeeee" style="border: 1px solid #c8c1c1;">
+								<td colspan="5" align="center" style="padding:16;border: 1px solid #c8c1c1;"><img src="https://biteheist.com/ordering/common/upload/catalog/view/theme/default/image/paid_new.png" width="120" height="120" alt=""/></td>
+							</tr>
+						   <?php } ?>
+				<?php		   
+					if($products[0]['OrderTypeId'] == 2){ ?> 
+					<tr bgcolor="#F4F4F4" style="border: 1px solid #c8c1c1;">
+					 <td colspan="5" style="padding:16; border-color: blanchedalmond;" align="center" style="border: 1px solid #c8c1c1;">
+					<p style="color:#2196f3;" >ORDER FOR LATER</p><br><b style="color:#2196f3; font-size:22px; font-style:italic; font-family: Segoe UI;"><?php echo $combinedOrderTime_monthDate ;?> @ <?php echo $combinedOrderTime_time; ?></b>
+					</td></tr>
+					<?php } ?>					   
+                                    <tr bgcolor="#eeeeee" height="30px" style="border: 1px solid #c8c1c1;">
+                                    </tr>
+                                 </table>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+            </tbody><!--style="color:#2196f3; font-size:22px; font-style:italic; font-family: Segoe UI;"-->
+         </table>
+         <!-- end of 3-columns --> 
+      </div>
+      <!--<div class="block">
+        
+         <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="fullimage" style="border: 1px solid #c8c1c1;">
+            <tbody>
+               <tr style="border: 1px solid #c8c1c1;">
+                  <td style="border: 1px solid #c8c1c1;">&nbsp;</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>-->
+      <div class="block">
+         <!-- Start of preheader -->
+         <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="postfooter">
+            <tbody>
+               <tr>
+                  <td width="100%">
+                     <table width="580" cellpadding="0" cellspacing="0" border="0" align="center" class="devicewidth">
+                        <tbody>
+                           <!-- Spacing -->
+                           <tr>
+                              <td width="100%" height="20"></td>
+                           </tr>
+                           <tr>
+                              <td width="100%" height="" align="center">&nbsp;</td>
+                           </tr>
+                           <tr>
+                              <td width="100%" height="10"></td>
+                           </tr>
+                           <tr>
+                              <td width="100%" height="5"></td>
+                           </tr>
+                           <!-- Spacing -->
+                           <tr>
+                              <td align="center" valign="middle" style="font-family: Helvetica, arial, sans-serif; font-size: 14px;color: #999999" st-content="preheader">
+                                 <blockquote type="cite">
+                                    <div>
+                                       <div>
+                                          <p>Please reply to this e-mail if you have any questions.</p>
+                                       </div>
+                                    </div>
+                                 </blockquote>
+                              </td>
+                           </tr>
+                           <!-- Spacing -->
+                           <tr>
+                              <td width="100%" height="" align="center"><img src="https://biteheist.com/ordering/common/upload/catalog/view/theme/default/image/printer_logo.png" width="120" height="" /></td>
+                           </tr>
+                           <!--<tr>
+                              <td width="100%" height="20" align="center"></td>
+                           </tr>-->
+
+                     <!--<tr bgcolor="#eeeeee" height="30px" >-->
+                    
+                    </tr>						   
+                           <!-- Spacing -->
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <!-- End of preheader -->
+      </div>
+   </body>
+</html>
+

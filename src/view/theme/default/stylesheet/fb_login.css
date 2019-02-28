@@ -1,0 +1,19 @@
+.fb-login-loading {
+    position: fixed;
+	top: 40%;
+	left: 45%;
+    font-size: 50px;
+	color: #FFFFFF;
+}
+
+.fb-login-loading-inside {
+    padding: 100px 0;
+    text-align: center;
+}
+.fb-login-loading-inside .fa-5x {
+    font-size: 5em;
+}
+
+.fb-login-button-area {
+	margin-bottom: 20px;
+} 
