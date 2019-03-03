@@ -47,15 +47,40 @@ gulp.task('styles', done => {
 gulp.task('js', done => {
 	console.log("Starting script minimization.");
 	gulp.src([
-		// 'src/scripts/*.js'
+		'src/view/javascript/outside/google/jquery.min.js',
+		'src/view/javascript/outside/sweetalert/sweetalert.min.js',
+		'src/view/javascript/inlineScripts/inline1.js',
+		'src/view/javascript/outside/google/platform.js',
+		'src/view/javascript/inlineScripts/inline2.js',
+		'src/view/javascript/inlineScripts/inline3.js',
+		'src/view/javascript/inlineScripts/inline4.js',
+		'src/view/javascript/inlineScripts/inline5.js',
+		'src/view/javascript/jquery/jquery-2.1.1.min.js',
+		'src/view/javascript/PawelDecowski-jquery-creditcardvalidator-ec16ea1/jquery.creditCardValidator.js',
+		'src/view/javascript/outside/jquery-ui.js',
 		'src/view/javascript/bootstrap/js/bootstrap.min.js',
 		'src/view/javascript/bootbox/bootbox.js',
 		'src/view/javascript/common.js',
-		'src/view/javascript/jquery/jquery.fblogin.js',
-		'src/view/javascript/jquery/datetimepicker/moment.js',
-		'src/view/javascript/jquery/jquery-2.1.1.min.js',
-		'src/view/theme/default/js/iframe/iframeResizer.contentWindow.min.js',
-		'src/view/javascript/PawelDecowski-jquery-creditcardvalidator-ec16ea1/jquery.creditCardValidator.js',
+		'src/view/javascript/inlineScripts/inline6.js',
+		'src/view/javascript/inlineScripts/inline7.js',
+		'src/view/javascript/inlineScripts/inline8.js',
+		'src/view/javascript/inlineScripts/inline9.js',
+		'src/view/javascript/inlineScripts/inline10.js',
+		'src/view/javascript/inlineScripts/inline11.js',
+		'src/view/javascript/inlineScripts/inline12.js',
+		'src/view/javascript/inlineScripts/inline13.js',
+		'src/view/javascript/inlineScripts/inline14.js',
+		
+		// 'src/scripts/*.js'
+		// 'src/view/javascript/jquery/jquery-2.1.1.min.js',
+		// 'src/view/javascript/bootstrap/js/bootstrap.min.js',
+		// 'src/view/javascript/bootbox/bootbox.js',
+		// 'src/view/javascript/common.js',
+		// 'src/view/javascript/jquery/jquery.fblogin.js',
+		// 'src/view/javascript/jquery/datetimepicker/moment.js',
+		// 'src/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js',
+		// 'src/view/theme/default/js/iframe/iframeResizer.contentWindow.min.js',
+		// 'src/view/javascript/PawelDecowski-jquery-creditcardvalidator-ec16ea1/jquery.creditCardValidator.js',
 		])
 	.pipe(concat('all_scripts.js'))
 	.pipe(uglify())

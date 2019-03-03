@@ -3120,7 +3120,7 @@ header{
 	width: 50% !important;
 	margin: 2.5em auto !important;
 /* 	zoom: .90; /* all browsers */
-  /*  -moz-transform: scale(.90);  /* Firefox */
+  /*  -moz-transform: scale(.90);  /* Firefox */ */
 }
 }
 @media only screen and (max-width: 979px) and (min-width: 767px){
@@ -3243,20 +3243,4 @@ header{
 /* Custom css to hide wishlist, compare  and share feature div */
 .or, .product_whishlist, .product_compare, .rating, .addthis_toolbox, #compare-total, #wishlist-total {
 	display:none !important;
-}
-div.category_thumb.category-info{
-	display:none;
-}
-.wrap-word{
-	word-wrap: break-word !important;
-	white-space: normal !important;
-}
-@media only screen and (max-width: 780px){
-	.hide-mobile{
-		display:none;
-	}
-}
-.common-home-shopClosed{
-	margin-left:auto;	
-	margin-right:auto;	
-}	
+}div.category_thumb.category-info{	display:none;}.wrap-word{	word-wrap: break-word !important;	white-space: normal !important;}@media only screen and (max-width: 780px){	.hide-mobile{		display:none;	}}.common-home-shopClosed{	margin-left:auto;		margin-right:auto;	}	

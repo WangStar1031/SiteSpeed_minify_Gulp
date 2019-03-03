@@ -329,7 +329,7 @@ body.orderMenu .cart_bag {margin-bottom: 0px;}
 .m0{margin: 0 !important;}
 .backPage {background: #dce1e5; padding: 15px 0;}
 .backPage span, .settingListing {width: 485px; margin: 0 auto; display: table;}
-.backPage span a {font-style: italic;font-size: 15px;color:#666666; font-family: "Conv_Oswald-Regular";}
+.backPage span a {font-style: italic;font-size: 15px;color#666666; font-family: "Conv_Oswald-Regular";}
 .settingListing ul {list-style: none; margin: 0; padding: 0; border:1px solid #dce1e5; overflow: hidden;}
 .settingListing ul li {display: block; padding:9px 16px; margin: 0;}
 .settingListing ul li a {font-family: "Conv_Oswald-light"; font-size: 22px; color: #505e6a; display: block;
@@ -2669,11 +2669,11 @@ height: auto !important;
 	display:none !important; /* To hide back button in the sidebarCart on all pages */
 }
 .instructionTextarea{
-/*<<<<<<< HEAD*/
+<<<<<<< HEAD
 	margin-bottom:40px;
-/*=======*/
+=======
 	margin-bottom:10px;
-/*>>>>>>> naveen*/
+>>>>>>> naveen
 }	
 
 .productOptionsChecklist{
@@ -2808,7 +2808,7 @@ padding-bottom: 0;
   	/* .row_mobile_cart {
 	margin-right: -15px;
 	margin-left: 30px; */
-	/*}*/
+	}
 
 }
 
@@ -2834,7 +2834,7 @@ padding-bottom: 0;
   	/* .row_mobile_cart {
 	margin-right: -15px;
 	margin-left: -15px; */
-	/*}*/
+	}
 
 }
 /* ////////////////////////mk////////////////////////////// */

@@ -1141,8 +1141,8 @@ strong.black { font-size: 34px !important;}
 		margin:0px !important;
 	}
 	.mobile_cart_btn{
-		margin:8px 0 0 0;
-		padding:6px 12px 0px 12px !important;
+		/* margin:8px 0 0 0;
+		padding:6px 12px 0px 12px !important; */
 	}
 	.mobile-mb10{
 		margin-bottom:0px;	
@@ -1319,7 +1319,7 @@ strong.black { font-size: 34px !important;}
 	}
 	
 	.orderMenu .itemPriceSection {
-    	width: auto;
+    	/* width: auto; */
 	}
 	
 	.orderMenu .priceCircle {
@@ -1372,9 +1372,52 @@ strong.black { font-size: 34px !important;}
 
 
 @media (max-width: 768px) {
+    .cloverProducts .prodOptSec .productOptionsChecklist span.priceRate{
+        margin-top: 6px;
+    }
+    .cloverProducts .prodOptSec .productOptionsChecklist .option-name {
+        /* display: block;
+        margin-top: 8px; */
+    }
+
+    .cloverProducts .prodOptSec .productOptionsChecklist {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .cloverProducts .prodOptSec .productOptionsChecklist label{
+        float: left;
+        width: 60%;
+    }
+    .cloverProducts .productOptionsChecklist.qtyBtnDiv .QuantityInputBox {
+        width: 32px!important;
+        height: 32px;
+    }
+
+    .cloverProducts .productOptionsChecklist.qtyBtnDiv .QtyInputBox input {
+        width: 32px!important;
+        height: 32px!important;
+    }
+    .cloverProducts .productOptionsChecklist.qtyBtnDiv {
+        margin-top: 0px;
+    }
+    .cloverProducts .productOptionsChecklist.qtyBtnDiv .QuantityInputBox button{
+        width: 100%;
+        height: 100%;
+    }
+
+    .cloverProducts .productOptionsChecklist.qtyBtnDiv .QtyInputBox {
+        margin: 0px 0px;
+        width: 32px!important;
+        height: 32px!important;
+    }
+    .cloverProducts .QuantityInputBox button {
+        position: relative;
+        z-index:1 ;
+    }
+    
 
     .contant_area .price_col {
-        margin-right: 0px;
+        /* margin-right: 0px; */
     }
 	
 #popPicks .cust_product_img1{
@@ -1457,6 +1500,8 @@ div.productViewDiv{
     padding: 15px !important;
 	border-bottom: 2px solid #cecece !important;
 }
+
+
 
 .product-link {
     font-size: 17px !important;
