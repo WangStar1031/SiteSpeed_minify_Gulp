@@ -25,15 +25,26 @@ gulp.task('imagemin', done => {
 gulp.task('styles', done => {
 	console.log("Starting stylesheets compiling.");
 	gulp.src([
-			'src/view/javascript/bootstrap/css/bootstrap.css',
+			'src/view/theme/default/stylesheet/inline1.css',
+			'src/view/javascript/outside/jquery-ui/jquery-ui.css',
+			'src/view/javascript/bootstrap/css/bootstrap.min.css',
 			'src/view/javascript/font-awesome/css/font-awesome.min.css',
 			'src/view/theme/default/font/stylesheet.css',
+			'src/view/theme/default/stylesheet/bootstrap.css',
 			'src/view/theme/default/stylesheet/style.css',
 			'src/view/theme/default/stylesheet/responsive.css',
 			'src/view/theme/default/stylesheet/stylesheet-pure-css.css',
 			'src/view/javascript/flipclock/compiled/flipclock.css',
-			'src/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css',
-			'src/view/theme/default/stylesheet/fb_login.css',
+
+			// 'src/view/javascript/bootstrap/css/bootstrap.css',
+			// 'src/view/javascript/font-awesome/css/font-awesome.min.css',
+			// 'src/view/theme/default/font/stylesheet.css',
+			// 'src/view/theme/default/stylesheet/style.css',
+			// 'src/view/theme/default/stylesheet/responsive.css',
+			// 'src/view/theme/default/stylesheet/stylesheet-pure-css.css',
+			// 'src/view/javascript/flipclock/compiled/flipclock.css',
+			// 'src/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css',
+			// 'src/view/theme/default/stylesheet/fb_login.css',
 			// 'src/view/theme/default/stylesheet/*.css'
 		])
 	.pipe(concat('all_styles.css'))
@@ -57,7 +68,7 @@ gulp.task('js', done => {
 		'src/view/javascript/inlineScripts/inline5.js',
 		'src/view/javascript/jquery/jquery-2.1.1.min.js',
 		'src/view/javascript/PawelDecowski-jquery-creditcardvalidator-ec16ea1/jquery.creditCardValidator.js',
-		'src/view/javascript/outside/jquery-ui.js',
+		'src/view/javascript/outside/jquery-ui/jquery-ui.js',
 		'src/view/javascript/bootstrap/js/bootstrap.min.js',
 		'src/view/javascript/bootbox/bootbox.js',
 		'src/view/javascript/common.js',
@@ -70,7 +81,7 @@ gulp.task('js', done => {
 		'src/view/javascript/inlineScripts/inline12.js',
 		'src/view/javascript/inlineScripts/inline13.js',
 		'src/view/javascript/inlineScripts/inline14.js',
-		
+
 		// 'src/scripts/*.js'
 		// 'src/view/javascript/jquery/jquery-2.1.1.min.js',
 		// 'src/view/javascript/bootstrap/js/bootstrap.min.js',
@@ -91,28 +102,63 @@ gulp.task('js', done => {
 
 gulp.task('watch', function(){
 	gulp.watch([
-		'src/view/javascript/bootstrap/css/bootstrap.css',
-		'src/view/javascript/font-awesome/css/font-awesome.min.css',
-		'src/view/theme/default/font/stylesheet.css',
-		'src/view/theme/default/stylesheet/style.css',
-		'src/view/theme/default/stylesheet/responsive.css',
-		'src/view/theme/default/stylesheet/stylesheet-pure-css.css',
-		'src/view/javascript/flipclock/compiled/flipclock.css',
-		'src/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css',
-		'src/view/theme/default/stylesheet/fb_login.css',
+			'src/view/theme/default/stylesheet/inline1.css',
+			'src/view/javascript/outside/jquery-ui/jquery-ui.css',
+			'src/view/javascript/bootstrap/css/bootstrap.min.css',
+			'src/view/javascript/font-awesome/css/font-awesome.min.css',
+			'src/view/theme/default/font/stylesheet.css',
+			'src/view/theme/default/stylesheet/bootstrap.css',
+			'src/view/theme/default/stylesheet/style.css',
+			'src/view/theme/default/stylesheet/responsive.css',
+			'src/view/theme/default/stylesheet/stylesheet-pure-css.css',
+			'src/view/javascript/flipclock/compiled/flipclock.css',
+
+		// 'src/view/javascript/bootstrap/css/bootstrap.css',
+		// 'src/view/javascript/font-awesome/css/font-awesome.min.css',
+		// 'src/view/theme/default/font/stylesheet.css',
+		// 'src/view/theme/default/stylesheet/style.css',
+		// 'src/view/theme/default/stylesheet/responsive.css',
+		// 'src/view/theme/default/stylesheet/stylesheet-pure-css.css',
+		// 'src/view/javascript/flipclock/compiled/flipclock.css',
+		// 'src/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css',
+		// 'src/view/theme/default/stylesheet/fb_login.css',
 		],  gulp.series(['styles'], done => {
 		console.log("CSS files changed.");
 		done();
 	}));
 	gulp.watch([
+		'src/view/javascript/outside/google/jquery.min.js',
+		'src/view/javascript/outside/sweetalert/sweetalert.min.js',
+		'src/view/javascript/inlineScripts/inline1.js',
+		'src/view/javascript/outside/google/platform.js',
+		'src/view/javascript/inlineScripts/inline2.js',
+		'src/view/javascript/inlineScripts/inline3.js',
+		'src/view/javascript/inlineScripts/inline4.js',
+		'src/view/javascript/inlineScripts/inline5.js',
+		'src/view/javascript/jquery/jquery-2.1.1.min.js',
+		'src/view/javascript/PawelDecowski-jquery-creditcardvalidator-ec16ea1/jquery.creditCardValidator.js',
+		'src/view/javascript/outside/jquery-ui/jquery-ui.js',
 		'src/view/javascript/bootstrap/js/bootstrap.min.js',
 		'src/view/javascript/bootbox/bootbox.js',
 		'src/view/javascript/common.js',
-		'src/view/javascript/jquery/jquery.fblogin.js',
-		'src/view/javascript/jquery/datetimepicker/moment.js',
-		'src/view/javascript/jquery/jquery-2.1.1.min.js',
-		'src/view/theme/default/js/iframe/iframeResizer.contentWindow.min.js',
-		'src/view/javascript/PawelDecowski-jquery-creditcardvalidator-ec16ea1/jquery.creditCardValidator.js',
+		'src/view/javascript/inlineScripts/inline6.js',
+		'src/view/javascript/inlineScripts/inline7.js',
+		'src/view/javascript/inlineScripts/inline8.js',
+		'src/view/javascript/inlineScripts/inline9.js',
+		'src/view/javascript/inlineScripts/inline10.js',
+		'src/view/javascript/inlineScripts/inline11.js',
+		'src/view/javascript/inlineScripts/inline12.js',
+		'src/view/javascript/inlineScripts/inline13.js',
+		'src/view/javascript/inlineScripts/inline14.js',
+
+		// 'src/view/javascript/bootstrap/js/bootstrap.min.js',
+		// 'src/view/javascript/bootbox/bootbox.js',
+		// 'src/view/javascript/common.js',
+		// 'src/view/javascript/jquery/jquery.fblogin.js',
+		// 'src/view/javascript/jquery/datetimepicker/moment.js',
+		// 'src/view/javascript/jquery/jquery-2.1.1.min.js',
+		// 'src/view/theme/default/js/iframe/iframeResizer.contentWindow.min.js',
+		// 'src/view/javascript/PawelDecowski-jquery-creditcardvalidator-ec16ea1/jquery.creditCardValidator.js',
 		], gulp.series(['js'], done => {
 		console.log("JS files changed.");
 		done();

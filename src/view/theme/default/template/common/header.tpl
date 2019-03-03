@@ -159,9 +159,9 @@ $app_title = $splitArr[0];
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
-
+<!-- 
 <link href="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/stylesheet/inline1.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>upload/catalog/view/javascript/outside/jquery-ui/jquery-ui.css">
 <link href="<?php echo BASE_URL; ?>upload/catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <link href="<?php echo BASE_URL; ?>upload/catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/font/stylesheet.css" rel="stylesheet" type="text/css" />
@@ -170,11 +170,15 @@ $app_title = $splitArr[0];
 <link href="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/stylesheet/responsive.css" rel="stylesheet">
 <link href="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/stylesheet/stylesheet-pure-css.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>upload/catalog/view/javascript/flipclock/compiled/flipclock.css" />
+ -->
+
+<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/stylesheet/all_styles.css" />
+
 
 <!--For Add to home popup-->
 
 <?php foreach ($styles as $style) { ?>
-<link href="<?php echo 'upload/'.$style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
+<!-- <link href="<?php echo 'upload/'.$style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" /> -->
 <?php } ?>
 
 
@@ -297,31 +301,21 @@ $app_title = $splitArr[0];
 	}
 </style>
 
-
+<!-- 
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/outside/google/jquery.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
-
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/outside/sweetalert/sweetalert.min.js"></script>
-
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline1.js" type="text/javascript"></script>
-
-<!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/outside/google/platform.js" async defer></script>
-
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline2.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline3.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline4.js" type="text/javascript"></script>
-
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline5.js" type="text/javascript"></script>
-
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/PawelDecowski-jquery-creditcardvalidator-ec16ea1/jquery.creditCardValidator.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/outside/jquery-ui.js" async defer></script>
+<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/outside/jquery-ui/jquery-ui.js" async defer></script>
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/bootbox/bootbox.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/common.js" type="text/javascript"></script>
-
-
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline6.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline7.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline8.js" type="text/javascript"></script>
@@ -331,10 +325,11 @@ $app_title = $splitArr[0];
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline12.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline13.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline14.js" type="text/javascript"></script>
-
+ -->
+<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/all_scripts.js" type="text/javascript"></script>
 
 <?php foreach ($scripts as $script) { ?>
-<script src="<?php echo 'upload/'.$script; ?>" type="text/javascript"></script>
+<!-- <script src="<?php echo 'upload/'.$script; ?>" type="text/javascript"></script> -->
 <?php } ?>
 
 </head>
