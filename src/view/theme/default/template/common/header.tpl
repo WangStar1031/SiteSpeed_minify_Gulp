@@ -32,90 +32,12 @@ if($_SERVER['QUERY_STRING'] != ''){
 <meta name="google-signin-client_id" content="993187382576-vb8b222co7skm71opqt6vvs6bq8qolgr.apps.googleusercontent.com">
 
 <?php if( $_GET['route'] == 'common/home' ){ ?>	
-	<script> 
-	//auto complete address form
-	function initAutocomplete() {
-		
-		if ( $( "#full_delivery_address" ).length ) {
-			var fullAddress = $('#full_delivery_address').val();
-			autocomplete = new google.maps.places.Autocomplete(
-			  /** @type {!HTMLInputElement} */
-			  (document.getElementById('full_delivery_address')),
-			  {types: ['geocode']});
-		  
-			console.log(autocomplete);
-		  // When the user selects an address from the dropdown, populate the address
-		  // fields in the form.
-		  autocomplete.addListener('place_changed', fillInAddress);
-		}  
-	}
-
-	// [START region_fillform]
-	function fillInAddress() {
-		
-	  // Get the place details from the autocomplete object.
-	  var place = autocomplete.getPlace();
-
-	  for (var component in componentForm) {
-	    document.getElementById(component).value = '';
-	    document.getElementById(component).disabled = false;
-	  }
-
-	  // Get each component of the address from the place details
-	  // and fill the corresponding field on the form.
-	  for (var i = 0; i < place.address_components.length; i++) {
-	    var addressType = place.address_components[i].types[0];
-	    if (componentForm[addressType]) {
-	      var val = place.address_components[i][componentForm[addressType]];
-	      document.getElementById(addressType).value = val;
-	    }
-	  }
-	}
-	</script>
+<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inline_1.js" type="text/javascript"></script>
 <?php } ?>
 
 
 <?php if(  $_SERVER['QUERY_STRING']  == '' ){?>
-	<script> 
-	//auto complete address form
-	function initAutocomplete() {
-		
-		if ( $( "#full_delivery_address" ).length ) {
-			var fullAddress = $('#full_delivery_address').val();
-			autocomplete = new google.maps.places.Autocomplete(
-			  /** @type {!HTMLInputElement} */
-			  (document.getElementById('full_delivery_address')),
-			  {types: ['geocode']});
-		  
-			console.log(autocomplete);
-		  // When the user selects an address from the dropdown, populate the address
-		  // fields in the form.
-		  autocomplete.addListener('place_changed', fillInAddress);
-		}  
-	}
-
-	// [START region_fillform]
-	function fillInAddress() {
-		
-	  // Get the place details from the autocomplete object.
-	  var place = autocomplete.getPlace();
-
-	  for (var component in componentForm) {
-	    document.getElementById(component).value = '';
-	    document.getElementById(component).disabled = false;
-	  }
-
-	  // Get each component of the address from the place details
-	  // and fill the corresponding field on the form.
-	  for (var i = 0; i < place.address_components.length; i++) {
-	    var addressType = place.address_components[i].types[0];
-	    if (componentForm[addressType]) {
-	      var val = place.address_components[i][componentForm[addressType]];
-	      document.getElementById(addressType).value = val;
-	    }
-	  }
-	}
-	</script> 
+<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inline_2.js" type="text/javascript"></script>
 <?php } ?>
 
 	
@@ -159,18 +81,6 @@ $app_title = $splitArr[0];
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
-<!-- 
-<link href="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/stylesheet/inline1.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="<?php echo BASE_URL; ?>upload/catalog/view/javascript/outside/jquery-ui/jquery-ui.css">
-<link href="<?php echo BASE_URL; ?>upload/catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-<link href="<?php echo BASE_URL; ?>upload/catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/font/stylesheet.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/stylesheet/bootstrap.css" rel="stylesheet">
-<link href="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/stylesheet/style.css" rel="stylesheet">
-<link href="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/stylesheet/responsive.css" rel="stylesheet">
-<link href="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/stylesheet/stylesheet-pure-css.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>upload/catalog/view/javascript/flipclock/compiled/flipclock.css" />
- -->
 
 <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>upload/catalog/view/theme/default/stylesheet/all_styles.css" />
 
@@ -301,31 +211,6 @@ $app_title = $splitArr[0];
 	}
 </style>
 
-<!-- 
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/outside/google/jquery.min.js"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/outside/sweetalert/sweetalert.min.js"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline1.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/outside/google/platform.js" async defer></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline2.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline3.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline4.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline5.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/PawelDecowski-jquery-creditcardvalidator-ec16ea1/jquery.creditCardValidator.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/outside/jquery-ui/jquery-ui.js" async defer></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/bootbox/bootbox.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/common.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline6.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline7.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline8.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline9.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline10.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline11.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline12.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline13.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/inlineScripts/inline14.js" type="text/javascript"></script>
- -->
 <script src="<?php echo BASE_URL; ?>upload/catalog/view/javascript/all_scripts.js" type="text/javascript"></script>
 
 <?php foreach ($scripts as $script) { ?>

@@ -57,6 +57,15 @@ gulp.task('styles', done => {
 
 gulp.task('js', done => {
 	console.log("Starting script minimization.");
+	
+	gulp.src(['src/view/javascript/inlineScripts/inline_1.js'])
+	.pipe(uglify())
+	.pipe(gulp.dest('build/scripts'));
+
+	gulp.src(['src/view/javascript/inlineScripts/inline_2.js'])
+	.pipe(uglify())
+	.pipe(gulp.dest('build/scripts'));
+
 	gulp.src([
 		'src/view/javascript/outside/google/jquery.min.js',
 		'src/view/javascript/outside/sweetalert/sweetalert.min.js',
